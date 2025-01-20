@@ -1,8 +1,3 @@
-const prezzoViaggioPerChilometri = 0.21
-let bigliettoMinorenni = 0.80;
-let bigliettoOver = 0.60;
-let prezzo;
-
 let nameField = document.getElementById("name-field");
 let kmField = document.getElementById("km-field");
 let ageField = document.getElementById("age-field");
@@ -17,23 +12,36 @@ const code = document.getElementById("code");
 const  cost = document.getElementById("cost");
 
 
-if(ageField === "minorenne" ){
-     prezzo = ( prezzoViaggioPerChilometri * kmField ) * bigliettoMinorenni;  
-} else if (ageField === "olre la maggiore età" ){
-     prezzo = ( prezzoViaggioPerChilometri * kmField) * bigliettoOver ;
+const prezzoViaggioPerChilometri = 0.21
+let discount;
+let offerta;
+let prezzo = (kmField * prezzoViaggioPerChilometri)
+
+if(ageField === "2" ){
+     discount = 0.20;
+     offerta = "Sconto per minori"  
+} else if (ageField === "3"){
+     discount = 0.40;
+     offerta = "Sconto per Over";
 
 } else{
-     prezzo = (prezzoViaggioPerChilometri * kmField );
+     discount = 0;
+     offerta = "Biglietto Standard";
     
 }
 
-console.log( `il prezzo del biglietto è: ${prezzo.toFixed(2)}` )
 
-btn.addEventListener("click", function(){
-     nome.innerHTML = nameField.value
+let prezzoCompleto = prezzo - (prezzo * discount);
+
+console.log( `il prezzo del biglietto è: ${prezzoCompleto.toFixed(2)}`, offerta )
+
+btn.addEventListener("click", function(event){
+    event.preventDefault()
+     nome.innerHTML = nameField.value;
+     offer.innerHTML = offerta.value;
      code.innerHTML = Math.floor((Math.random() * 100000) + 1);
      carrozza.innerHTML = Math.floor((Math.random() * 10) + 1);
-     cost.innerHTML = prezzo.value;
+     cost.innerHTML = prezzoCompleto.value;
 })
 
 
