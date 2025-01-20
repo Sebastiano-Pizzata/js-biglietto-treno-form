@@ -16,14 +16,14 @@
     <div class="row g-3 p-5 mt-3 d-flex justify-content-center ms-5 me-5"> 
         
         <div class="col-3">
-          <input id="nome" type="text" class="form-control" placeholder="Nome e Cognome" aria-label="First and Last name">
+          <input id="name-field" type="text" class="form-control" placeholder="Nome e Cognome" aria-label="First and Last name">
         </div>
         <div class="col-3">
-            <input id="km" type="text" class="form-control" placeholder="km da percorrere" aria-label="KM">
+            <input id="km-field" type="text" class="form-control" placeholder="km da percorrere" aria-label="KM">
           </div>
           <div class="col-2 ">
             <label class="visually-hidden" for="autoSizingSelect">Preference</label>
-            <select class="form-select" id="age" >
+            <select class="form-select" id="age-field" >
                 <option selected>Fascia d'età...</option>
                 <option value="1">Minorenne</option>
                 <option value="2">Maggiorenne</option>
@@ -37,7 +37,7 @@
         
       </div>
       <br>
-          <!-- <h2 class="mt-5 ms-5 me-5 text-center">IL TUO BIGLIETTO</h2>
+          <h2 class="mt-5 ms-5 me-5 text-center">IL TUO BIGLIETTO</h2>
       <div class="mt-5 ms-5 me-5">
         <h4>DETTAGLIO PASSEGGERI</h4>
         <table class="table">
@@ -46,17 +46,17 @@
                 <th scope="col">Nome Passeggero</th>
                 <th scope="col">Offerta</th>
                 <th scope="col">Carrozza</th>
-                <th scope="col">Codice Cp</th>
+                <th scope="col">Codice CP</th>
                 <th scope="col">Costo Biglietto</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <th scope="row"></th>
-                <th scope="row"></th>
-                <th scope="row"></th>
-                <th scope="row"></th>
-                <th scope="row"></th>
+                <th scope="row" id="name"></th>
+                <th scope="row" id="offer"></th>
+                <th scope="row" id="carrozza"></th>
+                <th scope="row" id="code"></th>
+                <th scope="row" id="cost"></th>
               </tr>
             </tbody>
           </table>
@@ -64,9 +64,9 @@
 
 
 
-      </div> -->
+      </div>
     
       
-    <script src="./main.js10"></script>
+  <script src="./main.js"></script>
 </body>
 </html>
