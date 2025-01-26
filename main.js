@@ -1,46 +1,41 @@
 const nameField = document.getElementById("name-field");
-const kmField = parseInt(document.getElementById("km-field"));
-const ageField = document.getElementById("age-field");
-const btn = document.getElementById("bottone");
-
-
-
 const nome = document.getElementById("name");
-const offer = document.getElementById("offer");
+let biglietto = document.querySelector(".d-none")
 const carrozza = document.getElementById("carrozza");
 const code = document.getElementById("code");
 const  cost = document.getElementById("cost");
+const btn = document.getElementById("bottone");
 
-
-const prezzoViaggioPerChilometri = 0.21
-let prezzo = (kmField * prezzoViaggioPerChilometri)
-let prezzoCompleto;
-let offerta;
-
-
-
-if(ageField == "Minorenne" ){
-     prezzoCompleto = (prezzo) * 0.80;
-     offerta = "Sconto per minori"  
-} else if (ageField == "Over 65"){
-     prezzoCompleto = (prezzo) * 0.60;
-     offerta = "Sconto per Over";
-
-} else{
-     prezzoCompleto = prezzo;
-     offerta = "Biglietto Standard";  
-}
 
 
 
 btn.addEventListener("click", function(event){
     event.preventDefault()
+    biglietto.classList.remove("d-none")
+    const ageField = document.getElementById("eta").value;
+    const kmField = parseInt(document.getElementById("km-field").value);
+    const prezzoViaggioPerChilometri = 0.21
+     let kilometri = parseInt(kmField)
+     let prezzo = kilometri * prezzoViaggioPerChilometri
+     const scontoMinori = prezzo * 0.8;
+     const scontoOver65 = prezzo * 0.6;
+     let nomeBiglietto;
      nome.innerHTML = nameField.value;
-     offer.innerHTML = offerta.value;
+    
+     
+      if(ageField === "2" ){
+          nomeBiglietto = "Sconto per minori"
+          cost.innerHTML = `${scontoMinori.toFixed(2)}`
+     } else if (ageField === "3"){
+             nomeBiglietto = "Sconto per Over";
+              cost.innerHTML = `${scontoOver65.toFixed(2)}`
+      }  else{
+          nomeBiglietto = "Biglietto Standard";
+          cost.innerHTML = `${prezzo.toFixed(2)}`  
+      }
+     document.getElementById("offer").innerHTML = nomeBiglietto;
      code.innerHTML = Math.floor((Math.random() * 100000) + 1);
      carrozza.innerHTML = Math.floor((Math.random() * 10) + 1);
-     cost.innerHTML = prezzoCompleto.value;
-     
 })
 
 
